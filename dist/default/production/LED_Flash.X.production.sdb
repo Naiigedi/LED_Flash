@@ -1,0 +1,26 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 10F322 ]
+[d frameptr 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"17 C:\Users\iromu\MPLABXProjects\LED_Flash.X\main.c
+[v _main main `(i  1 e 2 0 ]
+"196 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC10-12Fxxx_DFP/1.5.61/xc8\pic\include\proc\pic10f322.h
+[v _TRISA TRISA `VEuc  1 e 1 @6 ]
+"260
+[v _ANSELA ANSELA `VEuc  1 e 1 @8 ]
+"3552
+[v _LATA2 LATA2 `VEb  1 e 0 @58 ]
+"4017
+[v _RA3 RA3 `VEb  1 e 0 @43 ]
+"17 C:\Users\iromu\MPLABXProjects\LED_Flash.X\main.c
+[v _main main `(i  1 e 2 0 ]
+{
+"20
+[v main@s s `i  1 a 2 3 ]
+"53
+} 0
