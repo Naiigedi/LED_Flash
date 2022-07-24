@@ -14,40 +14,50 @@
 
 #define _XTAL_FREQ 8000000
 
+// グローバル変数(switchのおされた回数))
+int s = 0;
+
 int main(void) {
+    
     TRISA = 0b000;//Output
     ANSELA = 0b000;//for Digital I/O
-    int s = 0;
+    IOCIE  = 1;
+    IOCAP3 = 1;
+    GIE    = 1;
+    
     while(1){
-        if(RA3 == 0){
-            s = s + 1;
-            __delay_ms(200);
-            if(s>3){
-                s = 0;
-                LATA2 = 0;
-                __delay_ms(100);
-                
-            }
-        }
-        if(s == 0){  // OFF
+        if(s == 0){     // OFF
             LATA2 = 0;
-            __delay_ms(300);
         }
-        if(s == 1){  // Blinking pattern 1
+        if (s == 1){    // ON
+            LATA2 = 1;
+        }
+        if(s ==2){      // Blink pattern1
             LATA2 = 1;
             __delay_ms(500);
             LATA2 = 0;
             __delay_ms(500);
-        }
-        if(s == 2){  // Blinking pattern 2
+        }  
+        if(s ==3){      // Blink pattern2
             LATA2 = 1;
             __delay_ms(1000);
             LATA2 = 0;
-            __delay_ms(500);
-        }
-        if(s == 3){  // ON
-            LATA2 = 1;
-            __delay_ms(300);
-        }        
+            __delay_ms(200);
+        }  
+
+        
     }
+}
+
+// 割り込み関数
+void __interrupt() isr(void)
+{
+    s = s + 1;
+    if(s == 4){
+        s = 0;
+    }
+    
+    // 割り込みフラグをクリアする
+    IOCAF3 = 0;
+    
 }

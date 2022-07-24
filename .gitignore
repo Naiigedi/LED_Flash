@@ -1,0 +1,14 @@
+build/default/production/main.i
+build/default/production/main.p1
+dist/default/production/LED_Flash.X.production.cmf
+dist/default/production/LED_Flash.X.production.elf
+dist/default/production/LED_Flash.X.production.hex
+dist/default/production/LED_Flash.X.production.hxl
+dist/default/production/LED_Flash.X.production.lst
+dist/default/production/LED_Flash.X.production.map
+dist/default/production/LED_Flash.X.production.mum
+dist/default/production/LED_Flash.X.production.o
+dist/default/production/LED_Flash.X.production.rlf
+dist/default/production/LED_Flash.X.production.sdb
+dist/default/production/LED_Flash.X.production.sym
+dist/default/production/memoryfile.xml
