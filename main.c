@@ -14,7 +14,7 @@
 
 #define _XTAL_FREQ 8000000
 
-// グローバル変数(switchのおされた回数))
+// Global val for switch count
 int s = 0;
 
 int main(void) {
@@ -24,21 +24,24 @@ int main(void) {
     IOCIE  = 1;
     IOCAP3 = 1;
     GIE    = 1;
-    
+                
+    LATA2 = 0;
     while(1){
-        if(s == 0){     // OFF
-            LATA2 = 0;
-        }
-        if (s == 1){    // ON
+        if(s == 0){     // ON
             LATA2 = 1;
+
         }
-        if(s ==2){      // Blink pattern1
+        if (s == 1){    // OFF
+            LATA2 = 0;
+            SLEEP();
+        }
+        if(s == 2){      // Blink pattern1
             LATA2 = 1;
             __delay_ms(500);
             LATA2 = 0;
             __delay_ms(500);
         }  
-        if(s ==3){      // Blink pattern2
+        if(s == 3){      // Blink pattern2
             LATA2 = 1;
             __delay_ms(1000);
             LATA2 = 0;
@@ -49,7 +52,7 @@ int main(void) {
     }
 }
 
-// 割り込み関数
+// Interrupt function
 void __interrupt() isr(void)
 {
     s = s + 1;
@@ -57,7 +60,7 @@ void __interrupt() isr(void)
         s = 0;
     }
     
-    // 割り込みフラグをクリアする
+    // Interrupt flag clear
     IOCAF3 = 0;
     
 }
